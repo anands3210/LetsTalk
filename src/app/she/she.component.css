@@ -1,0 +1,129 @@
+.chat-box {
+  width: 600px;
+  height: 5vh;
+  min-height: 450px;
+  max-height: 650px;
+  padding: 30px;
+  border-radius: 35px;
+  background-color: #1e2a3a;
+
+  display: flex;
+  flex-direction: column;
+  animation: popIn 0.7s ease-out;
+
+}
+
+.chat-box.she {
+  box-shadow: 0 0 60px -15px rgba(248, 141, 230, 0.966);
+}
+
+.header {
+  text-align: right;
+}
+
+.header .title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.8rem;
+  color: #facce7;
+  text-shadow: 0 0 10px rgba(248, 141, 231, 0.7), 0 0 20px rgba(248, 141, 231, 0.5);
+  margin: 0 0 20px 0;
+}
+
+
+.content-body {
+  flex-grow: 1;
+  display: flex;
+  gap: 20px;
+  min-height: 0;
+
+}
+
+.character-area {
+  flex: 0 0 150px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.character-image {
+  width: 220px;
+  height: 230px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.message-display-area {
+  flex: 1;
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.message-bubble.sent {
+  background-color: #2b3b4f;
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  animation: messageIn 0.4s ease-out;
+  box-shadow: 0 0 60px -15px rgb(137, 207, 240);
+}
+.message-bubble.sent::-webkit-scrollbar {
+  display: none;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.input-area input {
+  flex-grow: 1;
+  padding: 14px 22px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  background-color: #17212b;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.input-area button {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #f88de7;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: #1e2a3a;
+  transition: transform 0.2s ease;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes messageIn {
+  from { opacity: 0; transform: translateY(15px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 1024px) {
+  .chat-box {
+    width: 95%;
+    max-width: 500px;
+  }
+}
